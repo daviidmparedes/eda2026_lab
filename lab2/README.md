@@ -2,11 +2,13 @@
 
 ## Objetivo
 
-Implementar **Quicksort** con dos estrategias de elección de pivote —**al azar** (la del libro) y **al centro** del subarreglo— y medir sus tiempos de ejecución reales frente a **Mergesort** y a un **algoritmo básico cuadrático** que cada estudiante elige.
+Medir los tiempos de ejecución reales de **Quicksort** con dos estrategias de elección de pivote —**al azar** (la del libro) y **al centro** del subarreglo— y compararlos contra **Mergesort** y contra un **algoritmo básico cuadrático** que cada estudiante elige.
+
+Quicksort **ya viene programado** en el esqueleto: es el que se hizo en clases. Lo que tienes que implementar es el algoritmo básico que elijas y Mergesort, para poder completar la comparación.
 
 Al terminar debes tener:
 
-1. Un algoritmo básico, Mergesort y las dos variantes de Quicksort funcionando.
+1. Tu algoritmo básico y tu Mergesort funcionando, junto a las dos variantes de Quicksort que ya vienen.
 2. Dos **tablas de tiempos** (`times_random.csv` y `times_sorted.csv`) para varios valores de `n`.
 3. Dos **gráficos** de tiempo vs `n` generados a partir de esas tablas.
 4. Una respuesta a las preguntas de análisis del final.
@@ -107,7 +109,7 @@ Cada llamada deja un `.png` al lado del `.csv`. Requiere `matplotlib` (`pip3 ins
 
 ## Qué hay que implementar
 
-Todo el trabajo está en `starter/sort/src/sort.cpp`. Las interfaces ya están fijas en `include/sort/`.
+Todo el trabajo está en `starter/sort/src/sort.cpp`, y son **dos pasos**: elegir e implementar un algoritmo básico, e implementar Mergesort. La sección de Quicksort del mismo archivo ya viene resuelta y no se toca. Las interfaces están fijas en `include/sort/`.
 
 ### Paso 1 — Elige UN algoritmo básico
 
@@ -134,17 +136,19 @@ Los que no elijas **no se llaman nunca** y no aparecen en las tablas, así que p
 | `merge(A, i, j, k)` | Mezclar las sublistas ya ordenadas `A[i..k]` y `A[k+1..j]` en `O(j-i+1)` (Alg. 11). |
 | `mergeSort(A, i, j)` | Partir en `k = (i+j)/2`, ordenar cada mitad, mezclar (Alg. 12). |
 
-### Paso 3 — Quicksort, las dos variantes
+### Quicksort — ya viene resuelto
 
-| Función | Qué debe hacer |
+Esta parte **no hay que programarla**: es la versión que se programó en clases y viene completa en `src/sort.cpp`. Apenas compiles el esqueleto, las columnas `quick_azar` y `quick_centro` ya entregan tiempos reales, y son la referencia contra la cual vas a comparar tu algoritmo básico y tu mergesort.
+
+| Función | Qué hace |
 |---|---|
 | `split_at(A, i, j, p)` | El Alg. 13 completo, con el pivote ya elegido en `p`. Retorna la posición final del pivote. |
-| `split_qs(A, i, j)` | Elegir `p` **al azar** en `[i, j]` con `getRandomInt` y llamar a `split_at`. |
-| `split_qs_middle(A, i, j)` | Elegir `p` **al centro** de `[i, j]` y llamar a `split_at`. |
+| `split_qs(A, i, j)` | Elige `p` **al azar** en `[i, j]` con `getRandomInt` y llama a `split_at`. |
+| `split_qs_middle(A, i, j)` | Elige `p` **al centro** de `[i, j]` y llama a `split_at`. |
 | `quickSort(A, i, j)` | Alg. 14 usando `split_qs`. |
 | `quickSortMiddle(A, i, j)` | Lo mismo usando `split_qs_middle`. |
 
-Nota sobre el diseño: **las dos variantes comparten `split_at` completo**. Lo único que cambia entre ellas es la línea que calcula `p`:
+Vale la pena leerla, porque el análisis del final se trata justamente de ella. Nota sobre el diseño: **las dos variantes comparten `split_at` completo**. Lo único que cambia entre ellas es la línea que calcula `p`:
 
 ```cpp
 return split_at(A, i, j, getRandomInt(i, j));   // al azar
@@ -252,12 +256,12 @@ Ambos ejes en escala logarítmica. En log-log, una recta de pendiente 2 es `O(n�
 
 | Síntoma | Causa probable |
 |---|---|
-| Todas las columnas muestran `FALLA` | Todavía no implementas nada. Es el estado inicial esperado. |
+| Las dos columnas de Quicksort dan tiempos, y las otras dos muestran `FALLA` | Es el estado inicial esperado: Quicksort ya viene resuelto y lo tuyo todavía no. |
 | En la tabla de entrada **ordenada** una columna sin implementar muestra un tiempo en vez de `FALLA` | Una función vacía no toca el arreglo, y un arreglo ya ordenado sigue ordenado. Guíate por la tabla de entrada aleatoria y por la verificación del arreglo pequeño. |
-| Aparece una columna de un algoritmo que no elegiste | Revisa `ALGORITMO_BASICO` en `tests/main.cpp`. |
-| `Segmentation fault` en Quicksort | La recursión no termina. Casi siempre es porque incluiste el pivote en alguna de las dos llamadas: deben ser `[i, k-1]` y `[k+1, j]`. |
-| Quicksort se queda pegado sin terminar | En `split_at` falta actualizar `p` cuando el que se intercambió fue el propio pivote (`if (i == p) p = j; else if (j == p) p = i;`). |
+| Aparece una columna de un algoritmo básico que no elegiste | Revisa `ALGORITMO_BASICO` en `tests/main.cpp`. |
+| Alguna columna de Quicksort empieza a fallar | No deberías haber tocado esa parte del archivo. Recupérala con `git checkout src/sort.cpp` o vuelve a bajar el esqueleto. |
 | Mergesort ordena mal cerca de los bordes | Revisa el orden de los parámetros: es `merge(A, i, j, k)`, con `k` al final. O faltó copiar `Aaux` de vuelta a `A`. |
+| `Segmentation fault` en Mergesort | La recursión no termina, o los índices se salen del tramo `[i, j]`. Revisa el caso base `i >= j`. |
 | El programa consume memoria sin parar | Falta `deleteArray(Aaux)` al final de `merge`. |
 | Los tiempos salen 10× más altos que los de referencia | Estás compilando sin `-O2`, o corriendo con otros programas pesados abiertos. |
 | `ModuleNotFoundError: No module named 'matplotlib'` | `pip3 install matplotlib`. |

@@ -102,54 +102,74 @@ namespace sort{
 	}
 
 	// ==================================================================
-	// PASO 3 - QuickSort (Cap. 2.7.4, Alg. 13 y 14)
+	// QuickSort (Cap. 2.7.4, Alg. 13 y 14)
+	//
+	// ESTA PARTE YA ESTA RESUELTA: es la version que se programo en clases.
+	// No hay nada que completar aca. Leela con calma, porque es contra esta
+	// implementacion que vas a comparar los tiempos de tu algoritmo basico
+	// y de tu mergesort.
 	// ==================================================================
 
 	// Alg. 13 (split_qs), con la posicion del pivote como parametro extra.
 	// Las dos variantes del laboratorio comparten TODA esta funcion: lo
 	// unico que cambia entre ellas es como se calcula p, mas abajo. Asi,
-	// cualquier diferencia de tiempo que midas viene solo de la eleccion
+	// cualquier diferencia de tiempo que se mida viene solo de la eleccion
 	// del pivote y no de dos implementaciones distintas.
 	//
-	// Al terminar, todo lo que quede a la izquierda de la posicion
-	// retornada debe ser <= al pivote, y todo lo de la derecha >=.
+	// Avanza i mientras encuentre elementos <= pivote y retrocede j mientras
+	// encuentre elementos >= pivote. Cuando ambos se detienen, los
+	// intercambia. Si el que se movio fue el propio pivote, actualiza p a su
+	// nueva posicion para no perderle la pista.
+	//
+	// Al terminar, todo lo que queda a la izquierda de la posicion retornada
+	// es <= al pivote, y todo lo de la derecha es >=.
 	static int split_at(float* A, int i, int j, int p){
-		// TODO: mientras i < j:
-		//   1. avanza i mientras i < p y A[i] <= A[p]
-		//      (busca por la izquierda un elemento que NO deberia estar ahi)
-		//   2. retrocede j mientras j > p y A[j] >= A[p]
-		//      (busca por la derecha un elemento que NO deberia estar ahi)
-		//   3. swap(A, i, j)
-		//   4. si el que se movio fue el propio pivote, hay que seguirle la
-		//      pista: si i == p entonces p = j; si no, si j == p entonces p = i.
-		// Al salir del while, retorna p.
+		while (i < j){
+
+			while ( i < p && A[i] <= A[p]){
+				i = i + 1;
+			}
+
+			while ( j > p && A[j] >= A[p]){
+				j = j - 1;
+			}
+
+			swap(A, i, j);
+
+			if (i == p){
+				p = j;
+			}
+			else if (j == p){
+				p = i;
+			}
+		}
 		return p;
 	}
 
 	// Version del libro: el pivote se elige AL AZAR dentro de [i, j].
+	// getRandomInt(min, max) esta en sort/utils.hpp y devuelve un entero
+	// entre min y max, ambos incluidos.
 	int split_qs(float* A, int i, int j){
-		// TODO: elige la posicion del pivote al azar y llama a split_at.
-		// getRandomInt(min, max) esta en sort/utils.hpp y devuelve un entero
-		// entre min y max, ambos incluidos.
-		return split_at(A, i, j, i);
+		return split_at(A, i, j, getRandomInt(i, j));
 	}
 
 	// Variante del laboratorio: el pivote es siempre el del CENTRO de [i, j].
+	// Ojo: es el centro del tramo, no el centro del arreglo completo.
 	int split_qs_middle(float* A, int i, int j){
-		// TODO: calcula la posicion central del tramo y llama a split_at.
-		// Ojo: es el centro de [i, j], no el centro del arreglo completo.
-		return split_at(A, i, j, i);
+		return split_at(A, i, j, i + (j - i) / 2);
 	}
 
 	// Alg. 14. Divide con split y ordena recursivamente cada sublista.
+	// El pivote queda en su posicion DEFINITIVA k, por eso NO entra en
+	// ninguna de las dos llamadas recursivas. Esa exclusion es justamente lo
+	// que hace que la recursion termine: si se incluyera k, el tramo no se
+	// achicaria nunca y el programa caeria con segmentation fault.
 	void quickSort(float* A, int i, int j){
-		// TODO: si i < j:
-		//   - k = split_qs(A, i, j)
-		//   - ordena recursivamente A[i..k-1] y A[k+1..j]
-		// El pivote queda en su posicion DEFINITIVA k, por eso no entra en
-		// ninguna de las dos llamadas. Esa exclusion es justamente lo que
-		// hace que la recursion termine: si incluyes k, no avanza nunca y
-		// el programa cae con segmentation fault.
+		if (i < j){
+			int k = split_qs(A, i, j);
+			quickSort(A, i, k - 1);
+			quickSort(A, k + 1, j);
+		}
 	}
 
 	void quickSort(float* A, int n){
@@ -158,7 +178,11 @@ namespace sort{
 
 	// Igual que quickSort, pero llamando a split_qs_middle.
 	void quickSortMiddle(float* A, int i, int j){
-		// TODO: lo mismo que quickSort, pero usando split_qs_middle.
+		if (i < j){
+			int k = split_qs_middle(A, i, j);
+			quickSortMiddle(A, i, k - 1);
+			quickSortMiddle(A, k + 1, j);
+		}
 	}
 
 	void quickSortMiddle(float* A, int n){
