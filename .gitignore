@@ -1,0 +1,28 @@
+# ---------------------------------------------------------------
+# Material que NO se publica a los estudiantes
+# ---------------------------------------------------------------
+# Soluciones de referencia
+**/solution/
+
+# El libro del curso se entrega por otro canal
+*.pdf
+
+# ---------------------------------------------------------------
+# Artefactos de compilacion
+# ---------------------------------------------------------------
+# Todo lo que generan cmake/make y los scripts vive dentro de build/,
+# que se regenera con: mkdir build && cd build && cmake .. && make
+build/
+
+*.o
+*.out
+
+# ---------------------------------------------------------------
+# Sistema / editores
+# ---------------------------------------------------------------
+.DS_Store
+__pycache__/
+*.pyc
+
+# Trabajo en curso local (no se publica)
+_wip/
