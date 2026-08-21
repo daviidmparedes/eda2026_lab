@@ -1,28 +1,37 @@
 # ---------------------------------------------------------------
-# Material que NO se publica a los estudiantes
+# Material que NO se publica
 # ---------------------------------------------------------------
-# Soluciones de referencia
-**/solution/
-
 # El libro del curso se entrega por otro canal
 *.pdf
+
+# Enunciados de cada laboratorio: se distribuyen aparte, no por el repo
+lab*/README.md
+
+# Configuracion local del editor
+.vscode/
+
+# Trabajo en curso local
+_wip/
 
 # ---------------------------------------------------------------
 # Artefactos de compilacion
 # ---------------------------------------------------------------
-# Todo lo que generan cmake/make y los scripts vive dentro de build/,
-# que se regenera con: mkdir build && cd build && cmake .. && make
+# Se regenera con: mkdir build && cd build && cmake .. && make
 build/
-
 *.o
 *.out
 
 # ---------------------------------------------------------------
-# Sistema / editores
+# Salidas generadas
+# ---------------------------------------------------------------
+# Los .csv los escribe ./test y los .png los generan los scripts de python.
+# Ambos quedan dentro de la carpeta python/ del ejercicio y se regeneran.
+**/python/*.csv
+**/python/*.png
+
+# ---------------------------------------------------------------
+# Sistema
 # ---------------------------------------------------------------
 .DS_Store
 __pycache__/
 *.pyc
-
-# Trabajo en curso local (no se publica)
-_wip/

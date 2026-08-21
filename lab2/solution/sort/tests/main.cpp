@@ -30,7 +30,7 @@ static std::string outputPath(const char* fileName){
 // Los algoritmos que no elijas no se llaman ni aparecen en las tablas, asi
 // que puedes dejarlos sin implementar sin romper nada.
 // ====================================================================
-static const int ALGORITMO_BASICO = 2;
+static const int ALGORITMO_BASICO = 0;
 
 // Semilla del generador aleatorio. Igual que en eda_cpp/sort/tests/test.cpp:
 // cada corrida usa datos distintos y quicksort elige pivotes distintos.
