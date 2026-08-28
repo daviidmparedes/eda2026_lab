@@ -126,7 +126,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 
 ### Lab 3 — [`lab3/`](lab3)
 
-- **`poscode/`** — la parte práctica de la Prueba 1: ordenar códigos de 5 dígitos en tiempo lineal y comparar contra Quicksort y Mergesort, que vienen ya resueltos. Trabaja sobre un dataset binario de un millón de códigos (`lab3/data/codes_1M.bin`); la lectura del archivo ya está hecha. Sigue las convenciones del módulo `poscodes/` de `eda_cpp`: la clase `Poscode` y las firmas de `quick_sort`, `merge_sort` y `radix_sort`.
+- **`poscode/`** — la parte práctica de la Prueba 1: ordenar códigos de 5 dígitos en tiempo lineal y comparar contra Quicksort y Mergesort, que vienen ya resueltos. Trabaja sobre un dataset binario de un millón de códigos (`lab3/data/codes_1M.bin`); la lectura del archivo ya está hecha. Sigue las convenciones del módulo `poscodes/` de `eda_cpp`: la clase `Poscode` y las firmas de `quick_sort`, `merge_sort` y `radix_sort`. El enunciado completo está en [`lab3/README.md`](lab3/README.md).
 
 ## 7. Entrega
 

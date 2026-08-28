@@ -4,8 +4,12 @@
 # El libro del curso se entrega por otro canal
 *.pdf
 
-# Enunciados de cada laboratorio: se distribuyen aparte, no por el repo
+# Enunciados de cada laboratorio: por defecto se distribuyen aparte, no por el repo.
+# Los de lab1 y lab2 explican la solucion completa y traen los tiempos de referencia.
 lab*/README.md
+# Excepcion: el del lab3 es el enunciado para el estudiante, ya separado de la
+# copia docente (que vive en lab3/solution/ y por eso queda fuera).
+!lab3/README.md
 
 # Enunciados de prueba: se entregan por otro canal
 eda_c*.png
