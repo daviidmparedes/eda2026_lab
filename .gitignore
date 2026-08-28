@@ -7,6 +7,12 @@
 # Enunciados de cada laboratorio: se distribuyen aparte, no por el repo
 lab*/README.md
 
+# Enunciados de prueba: se entregan por otro canal
+eda_c*.png
+
+# Solucion del lab3: se publica mas adelante, por ahora solo va el starter
+lab3/solution/
+
 # Configuracion local del editor
 .vscode/
 

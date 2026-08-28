@@ -77,6 +77,8 @@ labX/
 └── solution/tema/    # solución de referencia
 ```
 
+Cuando un laboratorio trabaja sobre un conjunto de datos, éste vive en `labX/data/` y lo comparten el `starter/` y la `solution/`. El `CMakeLists.txt` le pasa la ruta al ejecutable, así que `./test` lo encuentra solo.
+
 ## 4. Compilar y ejecutar
 
 Desde la carpeta del ejercicio (la que contiene el `CMakeLists.txt`):
@@ -111,6 +113,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 |---|---|---|---|
 | **Lab 1** | Recursividad y tiempo de ejecución | Cap. 2.3 y 2.6 (Alg. 7 y 8) | `power/`, `reorder/` |
 | **Lab 2** | Algoritmos de ordenamiento | Cap. 2.7 (Alg. 9 a 14) | `sort/` |
+| **Lab 3** | Ordenación en tiempo lineal | — (Prueba 1) | `poscode/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -120,6 +123,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 2 — [`lab2/`](lab2)
 
 - **`sort/`** — Quicksort con dos elecciones de pivote (al azar, como el Alg. 13, y al centro), Mergesort (Alg. 11 y 12) y tres algoritmos básicos de los cuales se implementa **uno**: selección (Alg. 9), inserción (Alg. 10) o burbuja. Quicksort viene ya resuelto porque se programó en clases. Mide tiempos reales, escribe dos `.csv` y genera dos gráficos log-log.
+
+### Lab 3 — [`lab3/`](lab3)
+
+- **`poscode/`** — la parte práctica de la Prueba 1: ordenar códigos de 5 dígitos en tiempo lineal y comparar contra Quicksort y Mergesort, que vienen ya resueltos. Trabaja sobre un dataset binario de un millón de códigos (`lab3/data/codes_1M.bin`); la lectura del archivo ya está hecha. Sigue las convenciones del módulo `poscodes/` de `eda_cpp`: la clase `Poscode` y las firmas de `quick_sort`, `merge_sort` y `radix_sort`.
 
 ## 7. Entrega
 
