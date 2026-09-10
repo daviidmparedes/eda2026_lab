@@ -14,9 +14,9 @@ lab*/README.md
 # Enunciados de prueba: se entregan por otro canal
 eda_c*.png
 
-# Entregas de estudiantes: NUNCA van al repo (llevan nombres reales).
-# Carpeta C1/ = entregas de la Prueba 1.
-C1/
+# Entregas y correccion de controles: NUNCA van al repo (llevan nombres reales).
+# C1/ son las entregas de la Prueba 1; el patron cubre los controles que vengan.
+C[0-9]/
 
 # Soluciones que todavia no se publican: por ahora de estos labs solo va el starter
 lab3/solution/
