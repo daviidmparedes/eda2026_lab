@@ -18,8 +18,9 @@ eda_c*.png
 # Carpeta C1/ = entregas de la Prueba 1.
 C1/
 
-# Solucion del lab3: se publica mas adelante, por ahora solo va el starter
+# Soluciones que todavia no se publican: por ahora de estos labs solo va el starter
 lab3/solution/
+lab4/solution/
 
 # Configuracion local del editor
 .vscode/

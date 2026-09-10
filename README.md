@@ -114,6 +114,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 1** | Recursividad y tiempo de ejecución | Cap. 2.3 y 2.6 (Alg. 7 y 8) | `power/`, `reorder/` |
 | **Lab 2** | Algoritmos de ordenamiento | Cap. 2.7 (Alg. 9 a 14) | `sort/` |
 | **Lab 3** | Ordenación en tiempo lineal | — (Prueba 1) | `poscode/` |
+| **Lab 4** | Punteros, arreglos y funciones | Cap. 3 | `punteros/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -127,6 +128,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 3 — [`lab3/`](lab3)
 
 - **`poscode/`** — la parte práctica de la Prueba 1: ordenar códigos de 5 dígitos en tiempo lineal y comparar contra Quicksort y Mergesort, que vienen ya resueltos. Trabaja sobre un dataset binario de un millón de códigos (`lab3/data/codes_1M.bin`); la lectura del archivo ya está hecha. Sigue las convenciones del módulo `poscodes/` de `eda_cpp`: la clase `Poscode` y las firmas de `quick_sort`, `merge_sort` y `radix_sort`. El enunciado completo está en [`lab3/README.md`](lab3/README.md).
+
+### Lab 4 — [`lab4/`](lab4)
+
+- **`punteros/`** — doce funciones que recorren el capítulo 3, dos por tema: indirección, memoria dinámica, aritmética de punteros, paso de parámetros, `const` y tiempo de vida. Un solo módulo con un `.hpp` y un `.cpp` por tema; `./test` verifica las doce y marca cada una con `[ok]` o `[FALLA]`. No mide tiempos: acá lo que se evalúa es el manejo de memoria, no el rendimiento.
 
 ## 7. Entrega
 
