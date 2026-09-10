@@ -153,7 +153,7 @@ void radix_sort(Poscode *A, size_t n);
 
 Ordena los `n` códigos en `O(n)`, usando `counting_sort_by_digit`.
 
-Un código tiene varios dígitos y `counting_sort_by_digit` solo sabe mirar uno. Tienes que decidir **en qué orden recorrer los dígitos** para que al final el arreglo quede ordenado por el código completo. Prueba en papel con tres o cuatro códigos cortos antes de programarlo: el orden correcto es el punto del ejercicio, y el incorrecto también deja el arreglo "casi" ordenado.
+Un código tiene varios dígitos y `counting_sort_by_digit` solo sabe mirar uno. Tienes que decidir **en qué orden recorrer los dígitos** para que al final el arreglo quede ordenado por el código completo: el orden correcto es el punto del ejercicio, y el incorrecto también deja el arreglo "casi" ordenado.
 
 El largo de un código se obtiene así:
 
@@ -177,18 +177,6 @@ Los valores de `n` del barrido son los que pide la prueba: 1.000, 10.000, 50.000
 
 1. **La tabla de tiempos** que imprime `./test` (también queda en `python/times_codes.csv`), con los tres algoritmos.
 2. **Los dos gráficos** que genera `plot_times.py`.
-3. **El análisis**: qué muestran esos números sobre la complejidad de cada algoritmo.
-
-Sobre el punto 3, una advertencia útil: en el gráfico log-log de tiempo total, `O(n)` y `O(n log n)` se ven casi iguales, porque un factor `log n` es una curvatura muy suave. El segundo gráfico, el de **tiempo por elemento**, es mucho más informativo — piensa qué forma debería tener la curva de un algoritmo lineal ahí, y compárala con lo que te salió.
-
-## Preguntas de análisis
-
-1. `radix_sort` hace 5 pasadas completas sobre el arreglo, y aun así compite con quicksort, que hace del orden de `log₂(1.000.000) ≈ 20` niveles de particiones. Compara **qué hace cada uno con cada elemento**, no solo cuántas pasadas da.
-2. ¿A partir de cuántos dígitos `p` dejaría de convenir `radix_sort` frente a quicksort? Escribe las dos complejidades en función de `n` y `p` e iguálalas. Con `n = 1.000.000`, ¿cuánto da?
-3. Mergesort sale consistentemente más lento que quicksort. Igual que en el laboratorio 2, `merge` reserva su arreglo auxiliar **en cada llamada**, o sea unas `n` veces por ordenamiento. ¿Cuánto de la diferencia es el algoritmo y cuánto el costo de esas reservas? Se puede medir moviendo el auxiliar fuera de `merge`.
-4. El dataset tiene 1.000.000 de códigos pero solo 100.000 valores distintos, así que hay unos 10 repetidos de cada uno. ¿Le afecta eso a alguno de los tres algoritmos?
-5. Si en vez de 5 dígitos los códigos tuvieran 4 dígitos y 2 letras mayúsculas (como en `eda_cpp/poscodes`), ¿qué habría que cambiar en `radix_sort`? ¿Cuántos contadores necesitaría cada pasada?
-6. Mira el tiempo por elemento de `radix_sort` a medida que crece `n`. ¿Se mantiene tan constante como predice la teoría? Si no, ¿qué lo explica? Pista: cada `Poscode` ocupa 32 bytes, y tu implementación necesita el arreglo más uno auxiliar del mismo tamaño. Compara ese total con el tamaño de la caché de tu máquina (`lscpu | grep -i cache`).
 
 ## Entrega
 
