@@ -115,6 +115,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 2** | Algoritmos de ordenamiento | Cap. 2.7 (Alg. 9 a 14) | `sort/` |
 | **Lab 3** | Ordenación en tiempo lineal | — (Prueba 1) | `poscode/` |
 | **Lab 4** | Punteros, arreglos y funciones | Cap. 3 | `punteros/` |
+| **Lab 5** | Búsqueda de caminos con pilas y colas | Cap. 4 y 5 | `busqueda/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -132,6 +133,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 4 — [`lab4/`](lab4)
 
 - **`punteros/`** — doce funciones que recorren el capítulo 3, dos por tema: indirección, memoria dinámica, aritmética de punteros, paso de parámetros, `const` y tiempo de vida. Un solo módulo con un `.hpp` y un `.cpp` por tema; `./test` verifica las doce y marca cada una con `[ok]` o `[FALLA]`. No mide tiempos: acá lo que se evalúa es el manejo de memoria, no el rendimiento.
+
+### Lab 5 — [`lab5/`](lab5)
+
+- **`busqueda/`** — la búsqueda de caminos de la clase, programada con la pila del código visto en clases (`Node`, `LList`, `DataNode`, `Stack`). Tres problemas con el mismo algoritmo: el mapa A–F de la pizarra, las jarras de 3 L y 5 L, y un laberinto de hasta 6 × 6. En cada uno se busca primero con pila y después con cola (la `Queue` se implementa en el laboratorio), y solo cambia la línea que calcula los sucesores. `./test` verifica cada parte con `[ok]` o `[FALLA]`, imprime las trazas de la pizarra y dibuja los laberintos con el camino encontrado.
 
 ## 7. Entrega
 

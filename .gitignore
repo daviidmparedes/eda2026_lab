@@ -6,9 +6,17 @@
 
 # Enunciados de cada laboratorio: se distribuyen aparte, no por el repo.
 lab*/README.md
-# La copia docente del lab3 explica la solucion completa y trae los tiempos
-# de referencia: tampoco se publica, aunque la solucion si.
-lab3/solution/README.md
+# Las copias docentes (lab3, lab5) explican la solucion completa y los
+# resultados esperados: tampoco se publican, aunque la solucion si.
+lab*/solution/README.md
+
+# Soluciones que todavia no se publican: por ahora de estos labs solo va el starter
+lab5/solution/
+
+# Material de la clase (guion, presentacion y codigo de la catedra): sirve
+# para preparar el laboratorio, pero no se publica.
+*.pptx
+lab*/class_*
 
 # Enunciados de prueba: se entregan por otro canal
 eda_c*.png
