@@ -4,12 +4,11 @@
 # El libro del curso se entrega por otro canal
 *.pdf
 
-# Enunciados de cada laboratorio: por defecto se distribuyen aparte, no por el repo.
-# Los de lab1 y lab2 explican la solucion completa y traen los tiempos de referencia.
+# Enunciados de cada laboratorio: se distribuyen aparte, no por el repo.
 lab*/README.md
-# Excepcion: el del lab3 es el enunciado para el estudiante, ya separado de la
-# copia docente (que vive en lab3/solution/ y por eso queda fuera).
-!lab3/README.md
+# La copia docente del lab3 explica la solucion completa y trae los tiempos
+# de referencia: tampoco se publica, aunque la solucion si.
+lab3/solution/README.md
 
 # Enunciados de prueba: se entregan por otro canal
 eda_c*.png
@@ -17,10 +16,6 @@ eda_c*.png
 # Entregas y correccion de controles: NUNCA van al repo (llevan nombres reales).
 # C1/ son las entregas de la Prueba 1; el patron cubre los controles que vengan.
 C[0-9]/
-
-# Soluciones que todavia no se publican: por ahora de estos labs solo va el starter
-lab3/solution/
-lab4/solution/
 
 # Configuracion local del editor
 .vscode/
