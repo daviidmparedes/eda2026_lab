@@ -116,6 +116,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 3** | Ordenación en tiempo lineal | — (Prueba 1) | `poscode/` |
 | **Lab 4** | Punteros, arreglos y funciones | Cap. 3 | `punteros/` |
 | **Lab 5** | Búsqueda de caminos con pilas y colas | Cap. 4 y 5 | `busqueda/` |
+| **Lab 6** | Misioneros y caníbales | — (Control 2) | `misioneros/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -137,6 +138,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 5 — [`lab5/`](lab5)
 
 - **`busqueda/`** — la búsqueda de caminos de la clase, programada con la pila del código visto en clases (`Node`, `LList`, `DataNode`, `Stack`). Tres problemas con el mismo algoritmo: el mapa A–F de la pizarra, las jarras de 3 L y 5 L, y un laberinto de hasta 6 × 6. En cada uno se busca primero con pila y después con cola (la `Queue` se implementa en el laboratorio), y solo cambia la línea que calcula los sucesores. `./test` verifica cada parte con `[ok]` o `[FALLA]`, imprime las trazas de la pizarra y dibuja los laberintos con el camino encontrado.
+
+### Lab 6 — [`lab6/`](lab6)
+
+- **`misioneros/`** — la parte práctica del Control 2: implementar el problema de los misioneros y caníbales sobre las clases del laboratorio 5. Se escriben el sistema de ids, la regla de las orillas, la meta, los sucesores y la búsqueda. `./test` revisa que el sistema de ids no tenga choques y que la inversa funcione, compara la regla, la meta y los sucesores contra una implementación propia, y prueba cinco estados iniciales distintos: el camino entregado tiene que partir en ese estado, terminar en la meta `(0,0,0)` y usar solo cruces válidos.
 
 ## 7. Entrega
 
