@@ -117,6 +117,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 4** | Punteros, arreglos y funciones | Cap. 3 | `punteros/` |
 | **Lab 5** | Búsqueda de caminos con pilas y colas | Cap. 4 y 5 | `busqueda/` |
 | **Lab 6** | Misioneros y caníbales | — (Control 2) | `misioneros/` |
+| **Lab 7** | Tic-tac-toe | — (Control 2) | `tictactoe/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -142,6 +143,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 6 — [`lab6/`](lab6)
 
 - **`misioneros/`** — la parte práctica del Control 2: implementar el problema de los misioneros y caníbales sobre las clases del laboratorio 5. Se escriben el sistema de ids, la regla de las orillas, la meta, los sucesores y la búsqueda. `./test` revisa que el sistema de ids no tenga choques y que la inversa funcione, compara la regla, la meta y los sucesores contra una implementación propia, y prueba cinco estados iniciales distintos: el camino entregado tiene que partir en ese estado, terminar en la meta `(0,0,0)` y usar solo cruces válidos.
+
+### Lab 7 — [`lab7/`](lab7)
+
+- **`tictactoe/`** — la segunda parte práctica del Control 2: buscar con una pila una secuencia de jugadas, de X y de O, que lleve desde un tablero dado hasta uno en que X gana. Se escriben el sistema de ids del tablero, el turno, los tres en línea, la meta, los sucesores y la búsqueda, sobre las clases del laboratorio 5. `./test` revisa el sistema de ids sobre los 19 683 tableros, compara el turno, los tres en línea, la meta y los sucesores contra una implementación propia, prueba cinco tableros iniciales y dos tableros desde los que X ya no puede ganar. Cada partida entregada tiene que partir en el tablero inicial, terminar con X en tres en línea y usar solo jugadas válidas.
 
 ## 7. Entrega
 
