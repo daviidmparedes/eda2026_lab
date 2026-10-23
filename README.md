@@ -118,6 +118,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 5** | Búsqueda de caminos con pilas y colas | Cap. 4 y 5 | `busqueda/` |
 | **Lab 6** | Misioneros y caníbales | — (Control 2) | `misioneros/` |
 | **Lab 7** | Tic-tac-toe | — (Control 2) | `tictactoe/` |
+| **Lab 8** | Árbol binario de búsqueda | Cap. 6.3 (Alg. 19 y 20) | `abb/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -147,6 +148,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 7 — [`lab7/`](lab7)
 
 - **`tictactoe/`** — la segunda parte práctica del Control 2: buscar con una pila una secuencia de jugadas, de X y de O, que lleve desde un tablero dado hasta uno en que X gana. Se escriben el sistema de ids del tablero, el turno, los tres en línea, la meta, los sucesores y la búsqueda, sobre las clases del laboratorio 5. `./test` revisa el sistema de ids sobre los 19 683 tableros, compara el turno, los tres en línea, la meta y los sucesores contra una implementación propia, prueba cinco tableros iniciales y dos tableros desde los que X ya no puede ganar. Cada partida entregada tiene que partir en el tablero inicial, terminar con X en tres en línea y usar solo jugadas válidas.
+
+### Lab 8 — [`lab8/`](lab8)
+
+- **`abb/`** — el árbol binario de búsqueda (ABB). Primero, un repaso del libro: insertar, buscar y el recorrido in-orden. Después, el menor y el mayor de un subárbol. Al final, el algoritmo para eliminar un nodo visto en clase: una hoja, un nodo con un hijo y un nodo con dos hijos, incluida la raíz. `./test` recorre el árbol después de cada operación y revisa el orden de las llaves, el padre de cada nodo y que no sobren ni falten nodos en memoria. Prueba cada caso de eliminación sobre el árbol de la Figura 6.9 del libro, y termina insertando y eliminando 1000 llaves al azar.
 
 ## 7. Entrega
 
