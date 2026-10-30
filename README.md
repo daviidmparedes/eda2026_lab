@@ -119,6 +119,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 6** | Misioneros y caníbales | — (Control 2) | `misioneros/` |
 | **Lab 7** | Tic-tac-toe | — (Control 2) | `tictactoe/` |
 | **Lab 8** | Árbol binario de búsqueda | Cap. 6.3 (Alg. 19 y 20) | `abb/` |
+| **Lab 9** | Árboles AVL y heaps | Cap. 6.4, 6.5 y 6.6 | `avl/`, `heap/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -152,6 +153,11 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 ### Lab 8 — [`lab8/`](lab8)
 
 - **`abb/`** — el árbol binario de búsqueda (ABB). Primero, un repaso del libro: insertar, buscar y el recorrido in-orden. Después, el menor y el mayor de un subárbol. Al final, el algoritmo para eliminar un nodo visto en clase: una hoja, un nodo con un hijo y un nodo con dos hijos, incluida la raíz. `./test` recorre el árbol después de cada operación y revisa el orden de las llaves, el padre de cada nodo y que no sobren ni falten nodos en memoria. Prueba cada caso de eliminación sobre el árbol de la Figura 6.9 del libro, y termina insertando y eliminando 1000 llaves al azar.
+
+### Lab 9 — [`lab9/`](lab9)
+
+- **`avl/`** — las rotaciones de un árbol AVL: la rotación Left y la Right, con sus subárboles (Figuras 6.18 y 6.19), y el balanceo con los cuatro casos del libro. La inserción viene dada y llama al balanceo. `./test` revisa cada rotación sobre árboles armados a mano (en la raíz y más abajo), los cuatro casos de balanceo, y que al insertar 1000 llaves (en orden y al azar) todos los nodos queden balanceados, con las alturas y los padres al día.
+- **`heap/`** — un heap de mínimo hecho con nodos, como en el libro: reparar hacia arriba y hacia abajo, `push`, `top` y `pop`. Una lista de nodos indica dónde va el próximo nodo y cuál es el último. `./test` revisa después de cada operación que el árbol siga completo, que ningún nodo tenga menor prioridad que su padre y que no sobren ni falten nodos en memoria, y termina ordenando 1000 datos con el heap.
 
 ## 7. Entrega
 
