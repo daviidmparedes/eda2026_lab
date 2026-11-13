@@ -74,8 +74,43 @@ void imprimirIteracion(int it, Stack &S){
 // No olvides el delete[] de visitado antes de retornar.
 // ---------------------------------------------------------------------------
 bool existeCamino(LList* adj, int n, int origen, int destino, bool traza){
-	// TODO: implementar.
-	return false;
+	
+	bool* visitado = new bool[n];
+	for (int i = 0; i < n; i++){
+		visitado[i] = false;
+	}
+
+	Stack S;
+	S.push(new DataNode(origen));
+	bool encontrado = false;
+
+	int it=0;
+	while (!S.isEmpty() && !encontrado){
+		it = it + 1;
+		if (traza){
+			imprimirIteracion(it, S);
+		}
+		int e = S.front()->getData()->getId();	
+		if (e == destino){
+			encontrado = true;
+		}else{
+			visitado[e] = true;
+			S.pop();
+			Node* x = adj[e].getHead();
+			while (x != nullptr){
+				if (!visitado[x->getId()]){
+					S.push(new DataNode(x->getId()));
+				}
+				x = x->getNext();
+			}
+		}
+	}
+	if (traza && !encontrado){
+		std::cout << "    pila vacia: no hay camino" << std::endl;
+	}
+
+	delete[] visitado;
+	return encontrado;
 }
 
 // ---------------------------------------------------------------------------
@@ -113,8 +148,58 @@ bool existeCamino(LList* adj, int n, int origen, int destino, bool traza){
 // Lo que quede en la pila al terminar se libera solo cuando S se destruye.
 // ---------------------------------------------------------------------------
 LList* buscarCamino(LList* adj, int n, int origen, int destino){
-	// TODO: implementar.
-	return nullptr;
+	bool* visitado = new bool[n];
+	for (int i = 0; i < n; i++){
+		visitado[i] = false;
+	}
+
+	Stack S;
+	S.push(new DataNode(origen));
+	bool encontrado = false;
+	DataNode* e = nullptr;
+
+	while (!S.isEmpty() && !encontrado){
+		e = S.front()->getData();
+		if (e->getId() == destino){
+			encontrado = true;
+		}
+		else{
+			visitado[e->getId()] = true;
+
+			// falta algo
+			e->setNChildren(e->getNChildren()+1);
+
+			S.pop();
+			Node* x = adj[e->getId()].getHead();
+			while (x != nullptr){
+				if (!visitado[x->getId()]){
+					S.push(new DataNode(x->getId(), e));
+				}
+				x = x->getNext();
+			}
+			
+			e->setNChildren(e->getNChildren()-1);
+			if (e->getNChildren() == 0){
+				delete e;
+			}
+		}
+	}
+
+	LList* camino = nullptr;
+	if (encontrado){
+		camino = new LList();
+		DataNode* p = e;
+		while (p != nullptr){
+			camino->insert(p->getId());
+			p = p->getFather();
+		}
+	}
+
+	delete[] visitado;
+	// Lo que quedo en la pila (incluida la ficha de la meta y, en cascada, sus
+	// antecesores) se libera solo al destruirse S.
+	return camino;
+	
 }
 
 // ---------------------------------------------------------------------------
@@ -125,6 +210,48 @@ LList* buscarCamino(LList* adj, int n, int origen, int destino){
 // completo y cambia UNA sola palabra: Stack por Queue.
 // ---------------------------------------------------------------------------
 LList* buscarCaminoCola(LList* adj, int n, int origen, int destino){
-	// TODO: implementar.
-	return nullptr;
+	bool* visitado = new bool[n];
+	for (int i = 0; i < n; i++){
+		visitado[i] = false;
+	}
+
+	Queue S;                                            // <- la unica diferencia
+	S.push(new DataNode(origen));
+	DataNode* e = nullptr;
+	bool encontrado = false;
+	while (!S.isEmpty() && !encontrado){
+		e = S.front()->getData();
+		if (e->getId() == destino){
+			encontrado = true;
+		}
+		else{
+			visitado[e->getId()] = true;
+			e->setNChildren(e->getNChildren() + 1);
+			S.pop();
+			Node* x = adj[e->getId()].getHead();
+			while (x != nullptr){
+				if (!visitado[x->getId()]){
+					S.push(new DataNode(x->getId(), e));
+				}
+				x = x->getNext();
+			}
+			e->setNChildren(e->getNChildren() - 1);
+			if (e->getNChildren() == 0){
+				delete e;
+			}
+		}
+	}
+
+	LList* camino = nullptr;
+	if (encontrado){
+		camino = new LList();
+		DataNode* p = e;
+		while (p != nullptr){
+			camino->insert(p->getId());
+			p = p->getFather();
+		}
+	}
+
+	delete[] visitado;
+	return camino;
 }
