@@ -1,0 +1,18 @@
+# Laboratorio 10 - Tableros que prueba ./test (Partes 2 y 3).
+#
+# Un tablero por linea: 9 cifras leidas por filas, con 0 en el hueco. Lo que
+# va despues del tablero es un comentario. ./test calcula por su cuenta la
+# respuesta correcta de cada tablero, asi que puedes agregar los tuyos.
+
+123456780   ya esta en la meta
+123450786   a 1 movimiento
+123045786   a 3 movimientos
+136420758   a 5 movimientos
+436218750   a 10 movimientos
+603278145   a 15 movimientos
+120456873   a 20 movimientos
+846275103   a 25 movimientos
+867254301   a 31: uno de los dos tableros mas dificiles
+647850321   a 31: el otro
+213045786   sin solucion: el ejemplo del enunciado
+123456870   sin solucion: el 7 y el 8 cambiados

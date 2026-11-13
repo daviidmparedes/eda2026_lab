@@ -120,6 +120,7 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 | **Lab 7** | Tic-tac-toe | — (Control 2) | `tictactoe/` |
 | **Lab 8** | Árbol binario de búsqueda | Cap. 6.3 (Alg. 19 y 20) | `abb/` |
 | **Lab 9** | Árboles AVL y heaps | Cap. 6.4, 6.5 y 6.6 | `avl/`, `heap/` |
+| **Lab 10** | Puzzle 3×3 | — (Control 3) | `puzzle/` |
 
 ### Lab 1 — [`lab1/`](lab1)
 
@@ -158,6 +159,10 @@ Así los datos y los gráficos quedan juntos y ninguna otra carpeta se ensucia. 
 
 - **`avl/`** — las rotaciones de un árbol AVL: la rotación Left y la Right, con sus subárboles (Figuras 6.18 y 6.19), y el balanceo con los cuatro casos del libro. La inserción viene dada y llama al balanceo. `./test` revisa cada rotación sobre árboles armados a mano (en la raíz y más abajo), los cuatro casos de balanceo, y que al insertar 1000 llaves (en orden y al azar) todos los nodos queden balanceados, con las alturas y los padres al día.
 - **`heap/`** — un heap de mínimo hecho con nodos, como en el libro: reparar hacia arriba y hacia abajo, `push`, `top` y `pop`. Una lista de nodos indica dónde va el próximo nodo y cuál es el último. `./test` revisa después de cada operación que el árbol siga completo, que ningún nodo tenga menor prioridad que su padre y que no sobren ni falten nodos en memoria, y termina ordenando 1000 datos con el heap.
+
+### Lab 10 — [`lab10/`](lab10)
+
+- **`puzzle/`** — la parte práctica del Control 3: resolver el puzzle 3×3, primero buscando con una cola y después con un heap de máximo cuya prioridad es la cantidad de fichas en su lugar. La cola, el heap del laboratorio 9 y el ABB de tableros visitados vienen dados. Se escriben el estado (la meta, la prioridad, los movimientos y el camino) y las dos búsquedas. `./test` calcula por su cuenta la solución más corta de cada tablero de `data/tableros.txt` y revisa que las acciones lleguen a la meta, que con la cola sean las mínimas, que se reconozcan los tableros sin solución y que el heap explore muchos menos estados que la cola. Con `./test <tablero>` resuelve un tablero cualquiera y lo compara con la respuesta correcta.
 
 ## 7. Entrega
 
